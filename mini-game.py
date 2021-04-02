@@ -1,13 +1,13 @@
-from sys import exit
+import random
 
-# Def main is code that's planned for the future to be added.
-def main():
-    print('Mini Game Selector')
-    print('1. Rock, Paper and scissors')
-    print('2. Heads or tails')
-    print('3. Exit enter nothing to exit')
+def display_menu():
+    print('''Mini Game Selector\n
+    1. Rock, Paper and scissors
+    2. Heads or tails
+    3. Exit enter nothing to exit''')
 
-def my_function():
+
+def rock_paper_scissors():
     print('Welcome to rock paper scissors')
     name_one = input('First player enter your name: ')
     player_one = input('Enter your move: ').lower()
@@ -38,6 +38,37 @@ def my_function():
             print(f"Rock smashes scissors! {name_two} wins.")
             exit()
 
+    print('')
     print('I think you may have entered a name wrong? try running the program again')
+    print('')
 
-my_function()
+
+
+def coin_flip():
+    user_input = input('Type start to flip a coin: ').lower()
+    if user_input == 'start':
+        n = random.random()
+        if n > 0.50:
+            print('')
+            print('Heads')
+            print('')
+        if n < 0.50:
+            print('')
+            print('Tails')
+            print('')
+
+def main():
+    while True:
+        display_menu()
+        print('')
+        picking_number = input('Enter a number for a minigame: ')
+        if picking_number == '1':
+            rock_paper_scissors()
+        if picking_number == '2':
+            coin_flip()
+        if picking_number == '3':
+            exit()
+
+
+if __name__ == '__main__':
+    main()
